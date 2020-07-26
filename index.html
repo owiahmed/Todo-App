@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <style>
+
+  * {
+    box-sizing: border-box;
+    
+  }
+  
+  /* Remove margins and padding from the list */
+  /* ul {
+    margin: 0;
+    padding: 0;
+  } */
+  
+  /* Style the list items */
+  /* ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    
+    /* make the list items unselectable */
+    
+  
+  /* Set all odd list items to a different color (zebra-stripes) */
+  /* ul li:nth-child(odd) {
+    background: #f9f9f9;
+  } */
+  
+  /* Darker background-color on hover */
+  ul li:hover {
+    background: #ddd;
+  }
+  
+  /* When clicked on, add a background color and strike out text */
+  /* ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+  } */
+  
+  /* Add a "checked" mark when clicked on */
+  /* ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+   */
+  /* Style the close button */
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+  
+  .close:hover {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Style the header */
+  .header {
+    background-color: rebeccapurple;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Clear floats after the header */
+  .header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the input */
+  input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+  }
+  
+  /* Style the "Add" button */
+  .addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+  }
+  
+  .addBtn:hover {
+    background-color: #bbb;
+  }
+  a {
+    color: white !important;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+
+  ul{
+    list-style: none ;
+    padding-left: 0 ;
+    margin-left: 0 ;
+
+}
+li {
+    font-size: 24px ;
+    width: auto ;
+    text-align: left;
+    padding: 3px ;
+    padding-bottom: 6px ;
+    margin-bottom: 3px !;
+    border-bottom: 0.5px solid black ;
+  
+}
+.btnn {
+    color: white;
+    border: solid 0px red;
+    border-radius: 25px;
+    background-color: red;
+    font-size: 15px;
+    margin-left : 40%;
+   
+   
+    
+}
+.btnnn{
+  color: white;
+  border: solid 0px green;
+  border-radius: 25px;
+  font-size: 15px;
+  background-color: green;
+  
+}
+.b1:hover{
+  background-color: green;
+}
+.b2:hover{
+  background-color: red;
+}
+  </style>
+
+<!-- <style>
+  body{
+    text-align: center;
+    
+  }
+  .btn{
+    background-color: red;
+  }
+  a {
+    color: white !important;
+    
+  }
+  .container{
+   
+    width: 60%;
+    align-items: center;
+    
+  }
+  .card-body{
+    margin-left: 20%;
+  }
+</style> -->
+<body>
+
+  
+   <!-- Image and text -->
+<nav class="navbar navbar-light bg-primary">
+    <a class="navbar-brand" href="#">
+      <img src="GTAWiki-Todo-Checklist.png" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy" >
+      Todo App
+    </a>
+  </nav>
+  
+ 
+<div class="container">
+  <div class="header">
+    <h2 class="mr-5">My To Do List</h2>
+      <input placeholder="Enter Your Todo..." type="text" name="" id="todo-item" >
+      <!-- <span><button onclick="addTodo()" class="mt-3 m-0">ADD Todo</button></span> -->
+      <span><a href="#" class="btn btn-primary mt-2 b1 " onclick="addTodo()">Add Todo</a></span>
+      <span><a href="#" class="btn btn-dark mt-2 mr-5 b2" onclick="deleteAll()">Delete All</a></span>
+      <!-- <span><button onclick="deleteAll()">Delete All</button></span> -->
+  </div>
+
+  <div class="card" >
+      <ul id="myUL" class="list-group" >
+
+      </ul>
+  </div>
+</div>
+
+
+
+      
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+</html>
